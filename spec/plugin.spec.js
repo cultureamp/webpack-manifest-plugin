@@ -398,6 +398,22 @@ describe('ManifestPlugin', function() {
         done();
       });
     });
+
+    it('should output unix paths', function(done) {
+      webpackCompile({
+        context: __dirname,
+        entry: {
+          'dir\\main': './fixtures/file.js'
+        }
+      }, {}, function(manifest) {
+        expect(manifest).toBeDefined();
+        expect(manifest).toEqual({
+          'dir/main.js': 'dir/main.js'
+        });
+
+        done();
+      });
+    });
   });
 
   describe('with ExtractTextPlugin', function() {
