@@ -4,7 +4,9 @@
   "description": "webpack plugin for generating asset manifests",
   "main": "index.js",
   "scripts": {
-    "test": "nyc jasmine"
+    "test": "nyc jasmine",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "author": "Dane Thurber <dane.thurber@gmail.com>",
   "license": "MIT",
@@ -40,7 +42,8 @@
   "homepage": "https://github.com/danethurber/webpack-manifest-plugin",
   "dependencies": {
     "fs-extra": "^0.30.0",
-    "lodash": ">=3.5 <5"
+    "lodash": ">=3.5 <5",
+    "snyk": "^1.316.1"
   },
   "nyc": {
     "reporter": [
@@ -50,5 +53,6 @@
     "exclude": [
       "spec"
     ]
-  }
+  },
+  "snyk": true
 }
